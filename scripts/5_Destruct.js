@@ -5,8 +5,8 @@
 
 const list = [1, 2, 3]
 const [a, b] = list;
-console.log(a, b)
+// console.log(a, b)
 
-const nameObj = { name: 'test', lastName: 'last_test' }
-const { name } = nameObj;
-console.log(name)
+const nameObj = { key: 'test', lastName: 'last_test' }
+const { key } = nameObj;
+console.log(key)

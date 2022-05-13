@@ -6,14 +6,14 @@ const mulByTwo = list.map((element) => {
     return element * 2;
 })
 
-console.log(mulByTwo)
+// console.log(mulByTwo)
 
 // filter
 const filteredList = list.filter((element) => {
     return element <= 3;
 })
 
-console.log(filteredList)
+// console.log(filteredList)
 
 // Reduce
 const result = list.reduce((acc, element) => {
@@ -21,7 +21,7 @@ const result = list.reduce((acc, element) => {
     return acc
 }, 0)
 
-console.log(result)
+// console.log(result)
 
 
 // find
