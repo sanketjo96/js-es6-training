@@ -20,7 +20,7 @@ function Car(model, yr) {
 // new Car('Swift', 2000)
 // new Car('Safari', 2005)
 
-// What is we call Car directly
+// What if we call Car directly
 // Car()
 
 
@@ -32,19 +32,11 @@ function CarWithNotification(model, yr) {
     console.log(this)
 
 
-    // const IsCompleted = function() {
-    //     console.log(this.model + ' is completed from factory!!')
-    // }
-    // IsCompleted()
-
-
-    // Arrow functions are light weighted functions where 
-    // their context points to parent context 
-    const IsCompleted = () => {
+    // How we can reslove this.model to 'Swift' here ?
+    const IsCompleted = function() {
         console.log(this.model + ' is completed from factory!!')
     }
     IsCompleted()
-    
 }
 
 new CarWithNotification('Swift', 2000)
