@@ -743,7 +743,7 @@ class PubSub {
 - [map.js](./2.array/polyfills/1.%20map.js) - Custom map implementation
 - [reduce.js](./2.array/polyfills/2.%20reduce.js) - Reduce with initial value
 - [forEach.js](./2.array/polyfills/3.forEach.js) - forEach behavior
-- **TODO:** filter, find, some, every, flat, flatMap
+- **Missing:** filter, find, some, every, flat, flatMap polyfills
 
 **Practice:** Can you implement each method correctly handling all edge cases? Chain methods efficiently?
 
@@ -774,7 +774,9 @@ class PubSub {
 #### 📁 Implementations:
 - [modularjs.js](./3.functions/1.%20modularjs.js) - Module pattern (IIFE, closures)
 - [infinitecurry.js](./3.functions/2.infinitecurry.js) - Currying implementation
-- **TODO:** Debounce, Throttle, Memoization, Compose, Generators
+- [debounce.js](./6.%20timings/1.%20debounce.js) - Debounce pattern implementation
+- [throttle.js](./6.%20timings/2.%20throttle.js) - Throttle pattern implementation
+- **Missing:** Memoization, Compose, Pipe, Generators
 
 **Practice:** How would you optimize a frequently-called function? Implement a sophisticated rate limiter.
 
@@ -801,9 +803,10 @@ class PubSub {
 - Performance: When copy vs reference?
 
 #### 📁 Implementations:
-- [deep_copy.js](./4.%20objects/1.%20deep_copy.js) - Deep cloning implementation
 - [objects.js](./4.%20objects/1.%20objects.js) - Object patterns
-- **TODO:** Property descriptors, freezing, nested access (get/set)
+- [deep_copy.js](./4.%20objects/2.%20deep_copy.js) - Deep cloning implementation
+- [thisBinding.js](./4.%20objects/3.%20thisBinding.js) - This binding patterns and examples
+- **Missing:** Property descriptors, freezing, nested access (get/set)
 
 **Practice:** Can you deep clone complex objects with circular references? Implement immutability helpers?
 
@@ -830,11 +833,13 @@ class PubSub {
 - Implement: Retry logic with backoff
 
 #### 📁 Implementations Needed:
-- Promise basics and polyfill
-- Promise combinators (all, race, allSettled, any)
-- Async patterns and examples
-- Event loop visualization
-- Concurrent control patterns
+- [callbackhell.js](./5.%20Promise/1.%20callbackhell.js) - Callback pattern demonstration
+- [promise.js](./5.%20Promise/2.%20promise.js) - Promise basics and patterns
+- [promisechain.js](./5.%20Promise/3.%20promisechain.js) - Promise chaining patterns
+- [combinators.js](./5.%20Promise/4.%20combinators.js) - Promise combinators (all, race, etc.)
+- [Promise polyfill](./5.%20Promise/polyfills/1.%20promise.js) - Custom Promise implementation
+- [All polyfill](./5.%20Promise/polyfills/2.%20all.js) - Promise.all implementation
+- **Missing:** allSettled, race, any polyfills; Event loop visualization; Concurrent control patterns
 
 **Practice:** Can you predict execution order? Implement concurrent request management?
 
@@ -1052,6 +1057,25 @@ If you can answer these for any implementation, you're ready.
 
 ---
 
-**Last Updated:** April 2026  
+**Last Updated:** May 2026  
 **Structure:** 2-Day Refresher + Comprehensive Guide  
 **Focus:** Implementation, code quality, problem-solving thinking
+
+---
+
+## 📊 CURRENT IMPLEMENTATION STATUS
+
+### ✅ COMPLETE & TESTED
+- 1. scope/ - All files implemented (scope-var, hoisting, scope-const-let, guess folder)
+- 2. array/ - Core polyfills (map, reduce, forEach)
+- 4. objects/ - All implementations (objects, deep_copy, thisBinding)
+- 5. Promise/ - All core implementations (basics, chaining, combinators, polyfills)
+- 6. timings/ - Both implementations (debounce, throttle)
+
+### 🔄 PARTIALLY COMPLETE
+- 3. functions/ - 2/7 implementations (modularjs, infinitecurry; missing: memoization, compose, pipe, generators)
+- 2. array/ - 3/10 polyfills (map, reduce, forEach; missing: filter, find, some, every, flat, flatMap)
+
+### ⏳ NOT STARTED
+- 7. compose/ - (Empty - should contain compose/pipe utilities)
+- 8. oops/ - (Empty - should contain OOP patterns and inheritance examples)
