@@ -48,6 +48,9 @@ Deep dive into every concept with full explanations.
 **Time to review:** 30 min
 
 #### Core Rules:
+<details>
+<summary>Show javascript example</summary>
+
 ```javascript
 // VAR: Function scoped, hoisted, can be redeclared
 // LET/CONST: Block scoped, not redeclared, TDZ exists
@@ -66,6 +69,8 @@ func.call(obj)        // this = obj (explicit)
 new Constructor()     // this = new object
 ```
 
+</details>
+
 #### Critical Gotchas:
 - [ ] `var` in loop with setTimeout - closure captures same reference
 - [ ] `this` in arrow functions inside methods
@@ -73,6 +78,9 @@ new Constructor()     // this = new object
 - [ ] Hoisting: var hoisted as undefined, let/const not accessible before declaration
 
 #### Must-Know Interview Questions:
+<details>
+<summary>Show javascript example</summary>
+
 ```javascript
 // Q1: What's the output?
 var x = 5;
@@ -96,6 +104,8 @@ for (let i = 0; i < 3; i++) {
 funcs.forEach(f => f()); // 0, 1, 2 (let is block-scoped)
 ```
 
+</details>
+
 ---
 
 ### 2️⃣ **ARRAY METHODS & POLYFILLS**
@@ -103,6 +113,9 @@ funcs.forEach(f => f()); // 0, 1, 2 (let is block-scoped)
 **Time to review:** 30 min
 
 #### Must Implement (in order of frequency):
+<details>
+<summary>Show javascript example</summary>
+
 ```javascript
 // 1. MAP - Transform each element
 Array.prototype.myMap = function(cb) {
@@ -169,6 +182,8 @@ Array.prototype.myFlat = function(depth = 1) {
 };
 ```
 
+</details>
+
 #### Common Traps:
 - [ ] Forget to pass `index` and `array` to callback
 - [ ] `reduce` with no initial value when array is empty
@@ -183,6 +198,9 @@ Array.prototype.myFlat = function(depth = 1) {
 **Time to review:** 45 min
 
 #### Pattern 1: CURRYING
+<details>
+<summary>Show javascript example</summary>
+
 ```javascript
 // Transform: func(a,b,c) -> func(a)(b)(c)
 function curry(fn) {
@@ -200,7 +218,12 @@ console.log(curriedAdd(1)(2)(3)); // 6
 console.log(curriedAdd(1, 2)(3)); // 6
 ```
 
+</details>
+
 #### Pattern 2: DEBOUNCE (delay execution)
+<details>
+<summary>Show javascript example</summary>
+
 ```javascript
 function debounce(fn, delay) {
   let timeoutId;
@@ -216,7 +239,12 @@ const search = debounce((query) => {
 }, 500);
 ```
 
+</details>
+
 #### Pattern 3: THROTTLE (limit frequency)
+<details>
+<summary>Show javascript example</summary>
+
 ```javascript
 function throttle(fn, delay) {
   let lastCall = 0;
@@ -235,7 +263,12 @@ const handleScroll = throttle(() => {
 }, 100);
 ```
 
+</details>
+
 #### Pattern 4: MEMOIZATION (cache results)
+<details>
+<summary>Show javascript example</summary>
+
 ```javascript
 function memoize(fn) {
   const cache = new Map();
@@ -257,7 +290,12 @@ const expensiveCalc = memoize((n) => {
 });
 ```
 
+</details>
+
 #### Pattern 5: COMPOSE (function chaining)
+<details>
+<summary>Show javascript example</summary>
+
 ```javascript
 function compose(...fns) {
   return (x) => fns.reduceRight((acc, fn) => fn(acc), x);
@@ -275,6 +313,8 @@ const pipeline = pipe(add5, multiply2);
 console.log(pipeline(3)); // (3 + 5) * 2 = 16
 ```
 
+</details>
+
 ---
 
 ### 4️⃣ **ASYNCHRONOUS PATTERNS**
@@ -282,6 +322,9 @@ console.log(pipeline(3)); // (3 + 5) * 2 = 16
 **Time to review:** 30 min
 
 #### Key Patterns:
+<details>
+<summary>Show javascript example</summary>
+
 ```javascript
 // PROMISES: Three states (pending, resolved, rejected)
 const promise = new Promise((resolve, reject) => {
@@ -318,7 +361,12 @@ Promise.allSettled([p1, p2]).then(results => {
 });
 ```
 
+</details>
+
 #### Common Interview Questions:
+<details>
+<summary>Show javascript example</summary>
+
 ```javascript
 // Q: Output order?
 console.log('1');
@@ -349,11 +397,16 @@ async function retryFetch(url, maxRetries = 3) {
 }
 ```
 
+</details>
+
 ---
 
 ### 5️⃣ **DEEP COPY & OBJECT MANIPULATION**
 **Why:** Data transformation critical  
 **Time to review:** 20 min
+
+<details>
+<summary>Show javascript example</summary>
 
 ```javascript
 // SHALLOW COPY: Only copies top level
@@ -400,10 +453,15 @@ function setNestedValue(obj, path, value) {
 }
 ```
 
+</details>
+
 ---
 ## ⚠️ GOTCHAS & EDGE CASES (Most Tested)
 
 ### ⚠️ GOTCHA 1: Closure in Loops
+<details>
+<summary>Show javascript example</summary>
+
 ```javascript
 // WRONG: All functions reference same i
 for (var i = 0; i < 3; i++) {
@@ -423,7 +481,12 @@ for (var i = 0; i < 3; i++) {
 }
 ```
 
+</details>
+
 ### ⚠️ GOTCHA 2: this Context Loss
+<details>
+<summary>Show javascript example</summary>
+
 ```javascript
 // WRONG: Lost context when passed as callback
 const obj = {
@@ -438,20 +501,35 @@ setTimeout(obj.greet.bind(obj), 0); // 'Test'
 setTimeout(() => obj.greet(), 0);   // 'Test'
 ```
 
+</details>
+
 ### ⚠️ GOTCHA 3: Array Methods & Sparse Arrays
+<details>
+<summary>Show javascript example</summary>
+
 ```javascript
 const arr = [1, , 3];
 arr.map(x => x * 2);     // [2, empty, 6] (skips hole)
 arr.forEach(x => console.log(x)); // 1, 3 (skips hole)
 ```
 
+</details>
+
 ### ⚠️ GOTCHA 4: Reduce with No Initial Value
+<details>
+<summary>Show javascript example</summary>
+
 ```javascript
 [].reduce((a, b) => a + b); // TypeError (empty array)
 [].reduce((a, b) => a + b, 0); // 0 (initial provided)
 ```
 
+</details>
+
 ### ⚠️ GOTCHA 5: Type Coercion Nightmare
+<details>
+<summary>Show javascript example</summary>
+
 ```javascript
 [] == false        // true (coerces both to 0)
 [] == ''           // true
@@ -462,12 +540,17 @@ null == undefined  // true
 NaN === NaN        // false (!!)
 ```
 
+</details>
+
 ---
 
 ## 💻 OUTPUT PREDICTION DRILL
 **Time:** 30 min (Day 2 morning)
 
 Try to predict outputs without running:
+
+<details>
+<summary>Show javascript example</summary>
 
 ```javascript
 // 1. Scope + Hoisting
@@ -525,6 +608,8 @@ console.log(first, rest);
 // Answer: 6
 ```
 
+</details>
+
 ---
 ## ✅ QUICK CHECKLIST: Before Interview Day
 
@@ -551,6 +636,9 @@ console.log(first, rest);
 ## 📌 ESSENTIAL REFERENCE PATTERNS
 
 ### Pattern: Event Emitter (Common Interview Pattern)
+<details>
+<summary>Show javascript example</summary>
+
 ```javascript
 class EventEmitter {
   constructor() {
@@ -576,7 +664,12 @@ class EventEmitter {
 }
 ```
 
+</details>
+
 ### Pattern: Singleton (Only one instance)
+<details>
+<summary>Show javascript example</summary>
+
 ```javascript
 const Singleton = (() => {
   let instance;
@@ -594,7 +687,12 @@ const Singleton = (() => {
 })();
 ```
 
+</details>
+
 ### Pattern: Observer/Pub-Sub
+<details>
+<summary>Show javascript example</summary>
+
 ```javascript
 class PubSub {
   constructor() {
@@ -619,6 +717,8 @@ class PubSub {
   }
 }
 ```
+
+</details>
 
 ---
 
