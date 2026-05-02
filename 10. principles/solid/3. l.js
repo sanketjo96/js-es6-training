@@ -1,30 +1,47 @@
 /*
- * Concept: principles / solid / l
+ * Concept: principles / solid / l — Liskov Substitution Principle (LSP)
  * Run: node "10. principles/solid/3. l.js"
- * Notes:
- *   - Comment out alternate examples when you want to run one scenario at a time.
- *   - Execute from repository root: node "10. principles/solid/3. l.js"
+ *
+ * CONCEPT:
+ *   A subclass must be substitutable for its parent without breaking the
+ *   program. A child class can extend behaviour, but must never break the
+ *   contract the parent promises.
+ *
+ * HOW THIS PROGRAM DEMONSTRATES IT:
+ *   ✗ BAD  — SoftServeBad extends Icecream but throws on scoop() because soft
+ *             serve can't be scooped. Any caller treating it as an Icecream breaks.
+ *   ✓ GOOD — SoftServe extends a base that only promises serve(). ScoopableIcecream
+ *             adds scoop() for types that support it. Every subtype is safe to
+ *             substitute for its parent.
  */
 
+// ✗ BAD
+class IcecreamBad {
+    scoop() { return 'Scooping icecream' }
+}
+
+class SoftServeBad extends IcecreamBad {
+    scoop() { throw new Error('Soft serve cannot be scooped') }  // violates LSP
+}
+
+// ✓ GOOD
 class Icecream {
-    constructor(flavour) {
-        this.flavour = flavour
-    }
-
-    getFlavour() {
-        return this.flavour
-    }
+    serve() { return 'Serving icecream' }
 }
 
-class ConeIcecream extends Icecream {
-    getPrice() {
-        return 5
-    }
+class ScoopableIcecream extends Icecream {
+    scoop() { return 'Scooping icecream' }
 }
 
-function printFlavour(icecream) {
-    console.log(icecream.getFlavour())
+class SoftServe extends Icecream {
+    // only promises serve() — no broken contract
 }
 
-printFlavour(new Icecream('strawberry'))
-printFlavour(new ConeIcecream('mango'))
+// ─── Usage ───────────────────────────────────────────────────────────────────
+function serveToCustomer(icecream) {
+    console.log(icecream.serve())   // works for every subtype
+}
+
+serveToCustomer(new ScoopableIcecream())  // Serving icecream
+serveToCustomer(new SoftServe())          // Serving icecream
+console.log(new ScoopableIcecream().scoop())  // Scooping icecream
