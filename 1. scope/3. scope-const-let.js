@@ -1,10 +1,20 @@
-// ES6 introduced const and let which have block scope.
-// let for block scope vars and const is for block scope const
+/*
+ * Concept: scope / scope const let
+ * Run: node "1. scope/3. scope-const-let.js"
+ * Notes:
+ *   - Comment out alternate examples when you want to run one scenario at a time.
+ *   - Execute from repository root: node "1. scope/3. scope-const-let.js"
+ */
 
-function icecream() {
+function blockScopeExample() {
     let flavour = "mango"
-    if (1) {
+
+    if (true) {
         let flavour = "pista"
-        console.log(flavour)
+        console.log("Inside block:", flavour)
     }
+
+    console.log("Outside block:", flavour)
 }
+
+blockScopeExample()

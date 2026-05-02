@@ -1,47 +1,54 @@
-function icecream(flavour, freezingPoint) {
+/*
+ * Concept: oops / old / inheritance
+ * Run: node "8. oops/old/1. inheritance.js"
+ * Notes:
+ *   - Comment out alternate examples when you want to run one scenario at a time.
+ *   - Execute from repository root: node "8. oops/old/1. inheritance.js"
+ */
+
+function Icecream(flavour, freezingPoint) {
     this.flavour = flavour
     this.freezingPoint = freezingPoint
 }
-icecream.prototype.category = "dessert"
-icecream.prototype.getFlavour = function() {
+
+Icecream.prototype.category = "dessert"
+Icecream.prototype.getFlavour = function () {
     return this.flavour
 }
 
-icecream.prototype.getFreezingPoint = function() {
+Icecream.prototype.getFreezingPoint = function () {
     return this.freezingPoint
 }
 
-icecream.prototype.toText = function() {
+Icecream.prototype.toText = function () {
     return "I am icecream"
 }
 
-function coneIcecream(flavour, freezingPoint, scoop, type) {
-    icecream.call(this, flavour, freezingPoint)
+function ConeIcecream(flavour, freezingPoint, scoop, type) {
+    Icecream.call(this, flavour, freezingPoint)
     this.scoop = scoop
     this.type = type
 }
 
-coneIcecream.prototype = new icecream()
-coneIcecream.prototype.getScoop = function() {
+ConeIcecream.prototype = Object.create(Icecream.prototype)
+ConeIcecream.prototype.constructor = ConeIcecream
+
+ConeIcecream.prototype.getScoop = function () {
     return this.scoop
 }
 
-coneIcecream.prototype.getType = function () {
+ConeIcecream.prototype.getType = function () {
     return this.type
 }
 
-coneIcecream.prototype.toText = function() {
+ConeIcecream.prototype.toText = function () {
     return "I am cone icecream"
 }
 
-
-const mangoIcecreamCone = new coneIcecream("mango", "4dc", "single", "normal cone")
-
+const mangoIcecreamCone = new ConeIcecream("mango", "4dc", "single", "normal cone")
 console.log(mangoIcecreamCone)
 console.log(typeof mangoIcecreamCone)
-console.log(mangoIcecreamCone instanceof coneIcecream)
-
-
-console.log(mangoIcecreamCone.getFlavour()) // from base class showcase inheritance
-console.log(mangoIcecreamCone.toText()) // from derived class showcase method overiding
-console.log(mangoIcecreamCone.category) // shared property across instance
+console.log(mangoIcecreamCone instanceof ConeIcecream)
+console.log(mangoIcecreamCone.getFlavour()) // inherited from base class
+console.log(mangoIcecreamCone.toText()) // derived class overrides base method
+console.log(mangoIcecreamCone.category) // shared property from prototype

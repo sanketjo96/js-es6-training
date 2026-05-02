@@ -1,4 +1,12 @@
-Array.prototype.newForEach = function (callback) {
+/*
+ * Concept: array / polyfills / 3.forEach
+ * Run: node "2. array/polyfills/3.forEach.js"
+ * Notes:
+ *   - Comment out alternate examples when you want to run one scenario at a time.
+ *   - Execute from repository root: node "2. array/polyfills/3.forEach.js"
+ */
+
+Array.prototype.newForEach = function (callback, thisArg) {
     if (!callback) {
         throw new TypeError("Callback function is missing.")
     }
@@ -8,15 +16,13 @@ Array.prototype.newForEach = function (callback) {
     }
 
     for (let i = 0; i < this.length; i++) {
-        this[i] = callback(this[i], i, this)
+        callback.call(thisArg, this[i], i, this)
     }
 };
 
 const data = [1, 2, 3]
 data.newForEach((value, index, array) => {
-    return value * 2;
+    console.log(`index=${index}, value=${value}, original array=[${array}]`)
 })
 
-console.log(data)
-
-data.
+console.log("Original data remains unchanged:", data)

@@ -1,3 +1,11 @@
+/*
+ * Concept: Promise / polyfills / all
+ * Run: node "5. Promise/polyfills/2. all.js"
+ * Notes:
+ *   - Comment out alternate examples when you want to run one scenario at a time.
+ *   - Execute from repository root: node "5. Promise/polyfills/2. all.js"
+ */
+
 function Task(name, time = 1000, isPartyTime = true) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -6,15 +14,16 @@ function Task(name, time = 1000, isPartyTime = true) {
             } else {
                 reject("error in task " + name)
             }
-
         }, time)
     })
 }
 
-function myPromiseAll(list) {
-    const resultData = []
-    let isResolved, isRejected
-    let resolvedCallback, rejectCallback;
+function myPromiseAll(promises) {
+    const results = Array(promises.length)
+    let resolvedCount = 0
+    let hasRejected = false
+    let resolvedCallback
+    let rejectCallback
 
     this.then = function (callback) {
         resolvedCallback = callback
@@ -26,28 +35,29 @@ function myPromiseAll(list) {
         return this
     }
 
-    list.forEach((promise, index) => {
-        promise.then((data) => {
-            resultData.push(data)
-            if (list.length === resultData.length) {
-                resolvedCallback(resultData)
+    promises.forEach((promise, index) => {
+        promise.then((value) => {
+            if (hasRejected) return
+            results[index] = value
+            resolvedCount += 1
+            if (resolvedCount === promises.length && typeof resolvedCallback === 'function') {
+                resolvedCallback(results)
             }
-        }).catch((data) => {
-            isRejected = true;
-            rejectCallback(data)
+        }).catch((error) => {
+            if (!hasRejected && typeof rejectCallback === 'function') {
+                hasRejected = true
+                rejectCallback(error)
+            }
         })
-
-    });
+    })
 }
 
-
-
 new myPromiseAll([
-    Task("find icecream shoop"),
+    Task("find icecream shop"),
     Task("find food to order", 100, true),
     Task("find party place")
 ]).then((data) => {
-    console.log("Success " + data)
+    console.log("Success", data)
 }).catch((e) => {
-    console.log("error " + e)
+    console.log("error", e)
 })

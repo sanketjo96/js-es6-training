@@ -1,3 +1,11 @@
+/*
+ * Concept: Promise / promisechain
+ * Run: node "5. Promise/3. promisechain.js"
+ * Notes:
+ *   - Comment out alternate examples when you want to run one scenario at a time.
+ *   - Execute from repository root: node "5. Promise/3. promisechain.js"
+ */
+
 
 function Task(name) {
     return new Promise((resolve, reject) => {

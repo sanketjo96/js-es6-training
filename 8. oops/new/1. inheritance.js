@@ -1,7 +1,12 @@
-class icecream {
-    flavour
-    freezingPoint
+/*
+ * Concept: oops / new / inheritance
+ * Run: node "8. oops/new/1. inheritance.js"
+ * Notes:
+ *   - Comment out alternate examples when you want to run one scenario at a time.
+ *   - Execute from repository root: node "8. oops/new/1. inheritance.js"
+ */
 
+class Icecream {
     constructor(flavour, freezingPoint) {
         this.flavour = flavour
         this.freezingPoint = freezingPoint
@@ -16,14 +21,11 @@ class icecream {
     }
 
     toText() {
-        return "I am  icecream"
+        return "I am icecream"
     }
 }
 
-class coneIcecream extends icecream {
-    scoop
-    type
-
+class ConeIcecream extends Icecream {
     static category = "dessert"
 
     constructor(flavour, freezingPoint, scoop, type) {
@@ -37,7 +39,7 @@ class coneIcecream extends icecream {
     }
 
     getType() {
-        return this.scoop
+        return this.type
     }
 
     toText() {
@@ -45,13 +47,11 @@ class coneIcecream extends icecream {
     }
 }
 
-
-const mangoIcecreamCone = new coneIcecream("mango", "4dc", "single", "normal cone")
+const mangoIcecreamCone = new ConeIcecream("mango", "4dc", "single", "normal cone")
 console.log(mangoIcecreamCone)
 console.log(typeof mangoIcecreamCone)
-console.log(mangoIcecreamCone instanceof coneIcecream)
+console.log(mangoIcecreamCone instanceof ConeIcecream)
 
-console.log(mangoIcecreamCone.getFlavour()) // from base class showcase inheritance
-console.log(mangoIcecreamCone.toText()) // from derived class showcase method overiding
-
-console.log(coneIcecream.category) // unable to access static prop through object
+console.log(mangoIcecreamCone.getFlavour()) // inherited from base class
+console.log(mangoIcecreamCone.toText()) // derived class overrides base method
+console.log(ConeIcecream.category) // static property is available on the class

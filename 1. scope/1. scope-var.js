@@ -1,3 +1,11 @@
+/*
+ * Concept: scope / scope var
+ * Run: node "1. scope/1. scope-var.js"
+ * Notes:
+ *   - Comment out alternate examples when you want to run one scenario at a time.
+ *   - Execute from repository root: node "1. scope/1. scope-var.js"
+ */
+
 // global scope
 
 flavour = "mango"

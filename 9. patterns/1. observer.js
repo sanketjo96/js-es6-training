@@ -1,3 +1,11 @@
+/*
+ * Concept: patterns / observer
+ * Run: node "9. patterns/1. observer.js"
+ * Notes:
+ *   - Comment out alternate examples when you want to run one scenario at a time.
+ *   - Execute from repository root: node "9. patterns/1. observer.js"
+ */
+
 class IcecreamStoreObservable {
     observerList = {}
     servings = []

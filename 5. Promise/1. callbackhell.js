@@ -1,3 +1,11 @@
+/*
+ * Concept: Promise / callbackhell
+ * Run: node "5. Promise/1. callbackhell.js"
+ * Notes:
+ *   - Comment out alternate examples when you want to run one scenario at a time.
+ *   - Execute from repository root: node "5. Promise/1. callbackhell.js"
+ */
+
 
 function Task(name, callback) {
     setTimeout(() => {

@@ -1,13 +1,21 @@
+/*
+ * Concept: Promise / polyfills / promise
+ * Run: node "5. Promise/polyfills/1. promise.js"
+ * Notes:
+ *   - Comment out alternate examples when you want to run one scenario at a time.
+ *   - Execute from repository root: node "5. Promise/polyfills/1. promise.js"
+ */
+
 function godPromise(executor) {
-    let isRsolved = false;
-    let isRejected = false;
-
-    let resolveCallback, resolvedValue;
-    let rejectedCallback, rejectedValue;
-
+    let isResolved = false
+    let isRejected = false
+    let resolveCallback
+    let rejectCallback
+    let resolvedValue
+    let rejectedValue
 
     function Resolve(value) {
-        isRsolved = true
+        isResolved = true
         if (typeof resolveCallback === 'function') {
             resolveCallback(value)
         } else {
@@ -15,17 +23,17 @@ function godPromise(executor) {
         }
     }
 
-    function Rejected(value) {
+    function Reject(value) {
         isRejected = true
-        if (typeof rejectedCallback === 'function') {
-            rejectedCallback(value)
+        if (typeof rejectCallback === 'function') {
+            rejectCallback(value)
         } else {
             rejectedValue = value
         }
     }
 
     this.then = function (callback) {
-        if (isRsolved) {
+        if (isResolved) {
             callback(resolvedValue)
         } else {
             resolveCallback = callback
@@ -37,22 +45,20 @@ function godPromise(executor) {
         if (isRejected) {
             callback(rejectedValue)
         } else {
-            rejectedCallback = callback
+            rejectCallback = callback
         }
         return this
     }
 
-    executor(Resolve, Rejected)
+    executor(Resolve, Reject)
 }
 
-const promise = new godPromise((resolve, rejected) => {
-    // setTimeout(() => {
-        rejected("data")
-    // }, 10)
+const promise = new godPromise((resolve, reject) => {
+    reject("data")
 })
 
 promise.then((data) => {
-    console.log("Success " + data)
+    console.log("Success", data)
 }).catch((e) => {
-    console.log("Error " + e)
+    console.log("Error", e)
 })

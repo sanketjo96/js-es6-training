@@ -1,19 +1,26 @@
-// No call with new so no this binding
-function Test() {
-    return {
-        "name": "sanket",
-        "ref": this
-    }
-}
-console.log(Test().ref.name)
+/*
+ * Concept: objects / thisBinding
+ * Run: node "4. objects/3. thisBinding.js"
+ * Notes:
+ *   - Comment out alternate examples when you want to run one scenario at a time.
+ *   - Execute from repository root: node "4. objects/3. thisBinding.js"
+ */
 
-
-// literal way so this points to object it belongs
-const object = {
-    name: "sanket",
-    value: function() {
-        return
-    }
+function Person(name) {
+    this.name = name
 }
 
-console.log(object.value().name)
+const person = new Person('sanket')
+console.log("Constructor call binds this to the new instance:", person.name)
+
+const icecreamObj = {
+    name: 'vanilla',
+    getName() {
+        return this.name
+    }
+}
+
+console.log("Method call binds this to the object:", icecreamObj.getName())
+
+const lostGetName = icecreamObj.getName
+console.log("Detached method loses this context:", lostGetName())

@@ -1,3 +1,11 @@
+/*
+ * Concept: Promise / combinators
+ * Run: node "5. Promise/4. combinators.js"
+ * Notes:
+ *   - Comment out alternate examples when you want to run one scenario at a time.
+ *   - Execute from repository root: node "5. Promise/4. combinators.js"
+ */
+
 function Task(name, time = 1000, isPartyTime = true) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {

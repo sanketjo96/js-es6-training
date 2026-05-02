@@ -1,3 +1,11 @@
+/*
+ * Concept: array / polyfills / map
+ * Run: node "2. array/polyfills/1. map.js"
+ * Notes:
+ *   - Comment out alternate examples when you want to run one scenario at a time.
+ *   - Execute from repository root: node "2. array/polyfills/1. map.js"
+ */
+
 Array.prototype.newMap = function (callback, thisArg) {
     if (!callback) {
         throw new TypeError("Callback function is missing.")

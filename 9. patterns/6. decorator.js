@@ -1,3 +1,11 @@
+/*
+ * Concept: patterns / decorator
+ * Run: node "9. patterns/6. decorator.js"
+ * Notes:
+ *   - Comment out alternate examples when you want to run one scenario at a time.
+ *   - Execute from repository root: node "9. patterns/6. decorator.js"
+ */
+
 const userService = {
     name: 'userService',
     getUser: function (id) {

@@ -1,20 +1,26 @@
-// Throttling is the act to responding to events
-// after every fixed interval no matter what
+/*
+ * Concept: timings / throttle
+ * Run: node "6. timings/2. throttle.js"
+ * Notes:
+ *   - Comment out alternate examples when you want to run one scenario at a time.
+ *   - Execute from repository root: node "6. timings/2. throttle.js"
+ */
 
-function makeThrottled(fn, time) {
+// Throttling limits function execution to once per interval.
+
+function makeThrottled(fn, delay) {
     let lastCallTime = 0
-    return function (args) {
-        let currentCallTime = Date.now()
-        if (currentCallTime - lastCallTime > time) {
+    return function (...args) {
+        const currentCallTime = Date.now()
+        if (currentCallTime - lastCallTime > delay) {
             lastCallTime = currentCallTime
-            fn(args)
+            fn(...args)
         }
     }
-
 }
 
-throttledLog = makeThrottled((msg) => {
-    console.log(`${Date.now()} ${msg}`);
+const throttledLog = makeThrottled((msg) => {
+    console.log(`${Date.now()} ${msg}`)
 }, 100)
 
 throttledLog("Call 1")
@@ -28,5 +34,4 @@ setTimeout(() => {
     throttledLog("Call 8")
     throttledLog("Call 9")
     throttledLog("Call 10")
-}, 100);
-
+}, 100)

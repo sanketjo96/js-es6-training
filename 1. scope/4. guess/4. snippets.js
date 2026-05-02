@@ -1,3 +1,11 @@
+/*
+ * Concept: scope / guess / snippets
+ * Run: node "1. scope/4. guess/4. snippets.js"
+ * Notes:
+ *   - Comment out alternate examples when you want to run one scenario at a time.
+ *   - Execute from repository root: node "1. scope/4. guess/4. snippets.js"
+ */
+
 const z = "outer-const";
 
 try {
