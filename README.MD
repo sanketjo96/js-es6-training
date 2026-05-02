@@ -760,7 +760,7 @@ class PubSub {
 - [scope-var.js](./1.%20scope/1.%20scope-var.js) - Functional scope vs block scope
 - [hoisting.js](./1.%20scope/2.%20hoisting.js) - Temporal Dead Zone, hoisting behavior
 - [scope-const-let.js](./1.%20scope/3.%20scope-const-let.js) - Block scope comparison
-- [snippet.js files](./1.%20scope/guess/) - Output prediction challenges
+- [snippet.js files](./1.%20scope/4.%20guess/) - Output prediction challenges
 
 **Practice:** Can you fix scope bugs? Create closures that don't leak memory?
 
@@ -840,9 +840,9 @@ class PubSub {
 - Handle edge cases (empty arrays, undefined, null)
 
 #### 📁 Implementations:
-- [map.js](./2.array/polyfills/1.%20map.js) - Custom map implementation
-- [reduce.js](./2.array/polyfills/2.%20reduce.js) - Reduce with initial value
-- [forEach.js](./2.array/polyfills/3.forEach.js) - forEach behavior
+- [map.js](./2.%20array/polyfills/1.%20map.js) - Custom map implementation
+- [reduce.js](./2.%20array/polyfills/2.%20reduce.js) - Reduce with initial value
+- [forEach.js](./2.%20array/polyfills/3.forEach.js) - forEach behavior
 - **Missing:** filter, find, some, every, flat, flatMap polyfills
 
 **Practice:** Can you implement each method correctly handling all edge cases? Chain methods efficiently?
@@ -872,8 +872,8 @@ class PubSub {
 - Generator-based lazy evaluation
 
 #### 📁 Implementations:
-- [modularjs.js](./3.functions/1.%20modularjs.js) - Module pattern (IIFE, closures)
-- [infinitecurry.js](./3.functions/2.infinitecurry.js) - Currying implementation
+- [modularjs.js](./3.%20functions/1.%20modularjs.js) - Module pattern (IIFE, closures)
+- [infinitecurry.js](./3.%20functions/2.infinitecurry.js) - Currying implementation
 - [debounce.js](./6.%20timings/1.%20debounce.js) - Debounce pattern implementation
 - [throttle.js](./6.%20timings/2.%20throttle.js) - Throttle pattern implementation
 - **Missing:** Memoization, Compose, Pipe, Generators

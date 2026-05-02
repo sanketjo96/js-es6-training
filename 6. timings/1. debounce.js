@@ -30,7 +30,6 @@ debouncedLog("call 4")
 debouncedLog("call 5") // only this should fire
 
 setTimeout(() => {
-    console.log("
-Firing after a pause (600ms later)...")
+    console.log("Firing after a pause (600ms later)...")
     debouncedLog("call 6")
 }, 600)
