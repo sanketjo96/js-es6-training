@@ -526,7 +526,7 @@ console.log(first, rest);
 ```
 
 ---
-## � QUICK CHECKLIST: Before Interview Day
+## ✅ QUICK CHECKLIST: Before Interview Day
 
 ### Mentally Review (30 min):
 - [ ] Can you implement map/filter/reduce without looking?
@@ -967,74 +967,21 @@ class PubSub {
 - Design: Flexible configuration system
 - Implement: Plugin architecture
 
-#### 📁 Implementations Needed:
-- Event emitter
-- Pub/Sub pattern
-- Factory implementations
-- Decorator examples
+#### 📁 Implementations Included:
+- [observer.js](./9.%20patterns/1.%20observer.js) - Observer pattern
+- [adapter.js](./9.%20patterns/2.%20adapter.js) - Adapter pattern
+- [singleton.js](./9.%20patterns/3.%20singleton.js) - Singleton pattern
+- [factory.js](./9.%20patterns/4.%20factory.js) - Factory pattern
+- [proxy.js](./9.%20patterns/5.%20proxy.js) - Proxy pattern
+- [decorator.js](./9.%20patterns/6.%20decorator.js) - Decorator pattern
+- [new inheritance example](./8.%20oops/new/1.%20inheritance.js) - Modern class inheritance
+- [old inheritance example](./8.%20oops/old/1.%20inheritance.js) - Legacy prototypal inheritance
 
 **Practice:** Can you implement a flexible event system? Design extensible architecture?
 
 ---
 
-## 📊 Study Progression
-
-### Week 1-2: Fundamentals
-- Scope, Hoisting, Closures
-- Prototypes, this binding
-- Practice output prediction questions
-
-### Week 3-4: Array & Object Operations
-- Array polyfills (map, filter, reduce, etc.)
-- Deep copy, object manipulation
-- Implement common utilities
-
-### Week 5-6: Functions & Patterns
-- Higher-order functions, currying, composition
-- Debounce, throttle, memoization
-- Design patterns (observer, factory, etc.)
-
-### Week 7-8: Advanced Topics
-- Async/Promises, async/await
-- Generators, iterators
-- Performance optimization
-
-### Week 9-10: Mock Interviews
-- Timed problems (45-60 min)
-- Various difficulty levels
-- Code review & optimization
-
----
-
-## 🚀 Quick Reference: Must-Know Concepts
-
-| Concept | Why? | How to Master? |
-|---------|------|----------------|
-| Closure | Every code test | Implement counter, cache, private variables |
-| this binding | Context bugs | Implement call/apply/bind, understand new |
-| Prototype | Language core | Build inheritance, understand __proto__ |
-| Async | Real-world | Implement Promise polyfill, sequence async operations |
-| Array methods | Daily use | Implement all polyfills, handle edge cases |
-| Currying | Functional style | Transform functions, partial application |
-| Deep copy | Data manipulation | Handle circular refs, nested structures |
-| Debounce/Throttle | Performance | Implement and use in real scenarios |
-
----
-
-## 💡 Tips for Success
-
-1. **Run Code While Learning** - Don't just read, execute and experiment
-2. **Understand Why** - Not just how to write it, but why it works
-3. **Edge Cases First** - Think of what can break before implementing
-4. **Performance Aware** - Know complexity of your approach
-5. **Communicate** - Explain your thinking during interviews
-6. **Practice Output Prediction** - Build intuition for JavaScript behavior
-7. **Refactor & Optimize** - After working solution, improve it
-8. **Read Others' Code** - Learn different approaches and patterns
-
----
-
-## 📝 How to Use This Repository
+##  How to Use This Repository
 
 1. **Read the relevant section** (2-day or comprehensive)
 2. **Review implementations** to see working examples
@@ -1042,18 +989,6 @@ class PubSub {
 4. **Implement missing pieces** - Code the polyfills yourself first
 5. **Test edge cases** - Run files and test edge cases
 6. **Simulate interviews** - Time yourself, solve without looking at examples
-
----
-
-## 🎓 Assessment: Can You Explain These?
-
-- [ ] Why does this code output that value? (Output prediction)
-- [ ] What's the time/space complexity? (Algorithm analysis)
-- [ ] What edge cases could break this? (Defensive thinking)
-- [ ] How would you optimize this? (Performance thinking)
-- [ ] What would a production version look like? (Code quality)
-
-If you can answer these for any implementation, you're ready.
 
 ---
 
@@ -1078,4 +1013,7 @@ If you can answer these for any implementation, you're ready.
 
 ### ⏳ NOT STARTED
 - 7. compose/ - (Empty - should contain compose/pipe utilities)
-- 8. oops/ - (Empty - should contain OOP patterns and inheritance examples)
+
+### 📌 ADDED RECENTLY
+- 8. oops/ - OOP inheritance examples implemented in `new/` and `old/`
+- 9. patterns/ - Design pattern examples implemented (observer, adapter, singleton, factory, proxy, decorator)
